@@ -8,9 +8,13 @@
         <field name="name">Brave New World</field>
         <field
             name = "author_ids"
-            eval="[(4, ref('res_partner_daniel'))]"
+            eval = "[(6, 0,
+                    [ref('res_partner_alexandre'),
+                     ref('res_partner_holger')]
+                     )]"
         />
         <field name="date_published"
                eval="(datetime.now() + timedelta(-1))" />
+
     </record>
 </odoo>
