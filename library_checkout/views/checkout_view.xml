@@ -16,6 +16,27 @@
         <field name="model">library.checkout</field>
         <field name="arch" type="xml">
             <form>
+
+                <header>
+                    <!--以下仅供查看效果使用-->
+
+                    <field name="state" invisible="True" />
+                    <button name="button_done"
+                        type="object"
+                        string="Return Books"
+                        attrs="{'invisible':
+                            [('state', 'in', ['new', 'done','cancel'])]}"
+                        class="oe_highlight" />
+
+                    <field name="state"
+                        widget="statusbar"
+                        clickable="True"
+                        />
+
+
+
+                </header>
+
                 <sheet>
                     <group>
                         <field name="member_id" />
@@ -25,6 +46,12 @@
                         <field name="stage_id" />
                     </group>
                 </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
             </form>
         </field>
     </record>

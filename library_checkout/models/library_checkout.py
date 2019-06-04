@@ -78,6 +78,15 @@ class Checkout(models.Model):
         # Code after write: can use `self`, with the updated values
         return True
 
+    def button_done(self):
+        Stage = self.env['library.checkout.stage']
+        done_stage = Stage.search(
+            [('state', '=', 'done')],
+            limit=1)
+        for checkout in self:
+            checkout.stage_id = done_stage
+        return True
+
 class CheckoutLine(models.Model):
     _name = 'library.checkout.line'
     _description = 'Borrow Request Line'
