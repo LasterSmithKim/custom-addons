@@ -22,6 +22,8 @@ class Checkout(models.Model):
     checkout_date = fields.Date(readonly=True)
     close_date = fields.Date(readonly=True)
 
+    member_image = fields.Binary(related='member_id.partner_id.image')
+
     @api.model
     def _default_stage(self):
         Stage = self.env['library.checkout.stage']
