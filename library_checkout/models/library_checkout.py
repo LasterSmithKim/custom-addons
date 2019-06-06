@@ -89,10 +89,29 @@ class Checkout(models.Model):
             checkout.stage_id = done_stage
         return True
 
+    num_other_checkouts = fields.Integer(
+        compute='_compute_num_other_checkouts')
+
+    def _compute_num_other_checkouts(self):
+        for rec in self:
+            domain = [
+                ('member_id', '=', rec.member_id.id),
+                ('state', 'in', ['open']),
+                ('id', '!=', rec.id)]
+            rec.num_other_checkouts = self.search_count(domain)
+
+    num_books = fields.Integer(compute='_compute_num_books',store=True)
+
+    @api.depends('line_ids')
+    def _compute_num_books(self):
+        for book in self:
+            book.num_books = len(book.line_ids)
+
 class CheckoutLine(models.Model):
     _name = 'library.checkout.line'
     _description = 'Borrow Request Line'
     checkout_id = fields.Many2one('library.checkout')
     book_id = fields.Many2one('library.book')
+
 
 
