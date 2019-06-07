@@ -85,6 +85,7 @@
                             <field name="checkout_date" />
                             <field name="close_date"
                                 attrs="{'invisible':[('state', 'in', ['new', 'open'])]}"/>
+                            <field name="request_date" invisible='True'/>
                         </group>
 
 
