@@ -112,6 +112,7 @@ class CheckoutLine(models.Model):
     _description = 'Borrow Request Line'
     checkout_id = fields.Many2one('library.checkout')
     book_id = fields.Many2one('library.book')
-
+    publisher_id = fields.Many2one(related='book_id.publisher_id')
+    author_ids = fields.Many2many(related='book_id.author_ids')
 
 
