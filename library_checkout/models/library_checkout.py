@@ -107,6 +107,26 @@ class Checkout(models.Model):
         for book in self:
             book.num_books = len(book.line_ids)
 
+
+    # kanban 视图需要的新字段
+    color = fields.Integer('Color Index')
+    priority = fields.Selection(
+        [('0', 'Low'),
+         ('1', 'Normal'),
+         ('2', 'High')],
+        'Priority',
+        default='1')
+    kanban_state = fields.Selection(
+        [('normal', 'In Progress'),
+         ('blocked', 'Blocked'),
+         ('done', 'Ready for next stage')],
+        'Kanban State',
+        default='normal')
+
+
+
+
+
 class CheckoutLine(models.Model):
     _name = 'library.checkout.line'
     _description = 'Borrow Request Line'
@@ -114,5 +134,6 @@ class CheckoutLine(models.Model):
     book_id = fields.Many2one('library.book')
     publisher_id = fields.Many2one(related='book_id.publisher_id')
     author_ids = fields.Many2many(related='book_id.author_ids')
+    cover_image = fields.Binary(related='book_id.image')
 
 
