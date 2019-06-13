@@ -11,7 +11,6 @@
                 <field name="kanban_state" />
                 <field name="priority" />
                 <field name="message_partner_ids" />
-
                 <!-- Optional progress bar -->
                 <progressbar
                     field="kanban_state"
@@ -60,8 +59,6 @@
                                     <li t-att-class="red_or_black">
                                         <field name="user_id" />
                                     </li>
-
-
                                     <li><field name="request_date" /></li>
                                     <t t-if="record.num_books.raw_value == 0">
                                         <li>No books.</li>
@@ -72,8 +69,6 @@
                                     <t t-else="">
                                         <li><field name="num_books" /> books.</li>
                                     </t>
-
-
                                 </ul>
                             </div>
                             <div class="o_kanban_record_bottom">
@@ -107,7 +102,6 @@
                                         <!--t t-raw="0" /-->
                                     </t>
                                 </div>
-
                             </div>
                             <div class="oe_clear" />
                         </div>
