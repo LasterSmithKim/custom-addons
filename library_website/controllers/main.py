@@ -10,3 +10,11 @@ class Main(http.Controller):
         return request.render(
             'library_website.index',
             {'docs': checkouts})
+
+    @http.route('/checkout/<model("library.checkout"):doc>',
+        auth='user', # 默认值，但此处明确指定
+        website=True)
+    def checkout(self, doc, **kwargs):
+        return http.request.render(
+            'library_website.checkout',
+            {'doc': doc})
