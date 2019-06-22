@@ -127,6 +127,7 @@ class Checkout(models.Model):
 
 
 
+
 class CheckoutLine(models.Model):
     _name = 'library.checkout.line'
     _description = 'Borrow Request Line'

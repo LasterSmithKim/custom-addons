@@ -94,6 +94,11 @@
                             <field name="line_ids" >
                                 <tree editable='top'>
                                     <field name="book_id" />
+                                    <field name="author_ids" widget="many2many_tags"/>
+                                    <field name="publisher_id" />
+
+                                    <field style="width:50px; height:15px;" name="cover_image" widget="image"/>
+
 
                                 </tree>
                                 <!--小贴士：如果想要在列表视图的表单弹出窗口中直接编辑one-to-many路线，

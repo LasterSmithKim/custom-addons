@@ -26,4 +26,18 @@
         action="action_library_book_report"
     />
 
+
+
+    <act_window id="action_library_book_category"
+        name="Book Category"
+        res_model="library.book.category"
+        view_mode="tree,form"
+    />
+    <menuitem id="menu_library_book_category"
+        name="Book Category"
+        parent="menu_library"
+        action="action_library_book_category"
+    />
+
+
 </odoo>

@@ -56,6 +56,11 @@ class Book(models.Model):
         # search='_search_publisher_country',
     )
 
+    # Book Category
+    book_category = fields.Many2one(
+        'library.book.category'
+    )
+
     @api.multi
     def _check_isbn(self):
         self.ensure_one()

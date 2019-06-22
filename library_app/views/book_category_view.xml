@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_form_bookcategory" model="ir.ui.view">
+        <field name="name">Book Category Form</field>
+        <field name="model">library.book.category</field>
+        <field name="arch" type="xml">
+
+            <form string="BookCategory">
+
+                <header>
+
+                </header>
+                <sheet>
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="name" />
+                            <field name="parent_id" widget="many2one_tags" />
+                            <field name="parent_path" />
+                            <field name="child_ids" widget="one2many_tags" />
+                            <field name="highlighted_id" />
+                        </group>
+                        <group name="group_right">
+
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_bookcategory" model="ir.ui.view">
+        <field name="name">Book Category List</field>
+        <field name="model">library.book.category</field>
+        <field name="arch" type="xml">
+            <tree>
+                    <field name="name" />
+                    <field name="parent_id" widget="many2one_tags" />
+                    <field name="parent_path" />
+                    <field name="child_ids" widget="one2many_tags" />
+            </tree>
+        </field>
+    </record>
+
+
+
+
+</odoo>

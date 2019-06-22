@@ -25,6 +25,7 @@
                             <field name="active" />
                             <field name="price" />
                             <field name="image" widget="image" />
+                            <field name="book_category" />
                         </group>
                     </group>
                 </sheet>
