@@ -42,6 +42,7 @@
                 <field name="author_ids" widget="many2many_tags" />
                 <field name="publisher_id" />
                 <field name="date_published" />
+                <field name="publisher_country_id" />
             </tree>
         </field>
     </record>

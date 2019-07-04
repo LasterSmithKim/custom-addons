@@ -1,0 +1,23 @@
+<?xml version = "1.0"?>
+<odoo>
+    <menuitem id = "menu_goods" name = 'Goods' />
+
+
+
+    <!-- Action to open the Machine list -->
+    <act_window id="action_goods_machine"
+        name="Goods Machine"
+        res_model="goods.machine"
+        view_mode="tree,form"
+    />
+    <!-- Menu item to open the Machine list -->
+    <menuitem id="menu_goods_machine"
+        name="Machines"
+        parent="menu_goods"
+        action="action_goods_machine"
+    />
+
+
+
+</odoo>
+

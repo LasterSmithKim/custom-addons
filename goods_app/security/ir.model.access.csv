@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_machine_user,MachineUser,model_goods_machine,goods_group_user,1,0,0,0
+access_machine_manager,MachineManager,model_goods_machine,goods_group_manager,1,1,1,1

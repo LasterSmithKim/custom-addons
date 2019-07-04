@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_form_machine" model="ir.ui.view">
+        <field name="name">Machine Form</field>
+        <field name="model">goods.machine</field>
+        <field name="arch" type="xml">
+            <form string="Machine">
+                <header>
+                    <button name="button_check_isbn" type="object"
+                        string="Check CODE" />
+                </header>
+                <sheet>
+                    <group  name="group_top">
+                        <group name="group_left">
+                            <field name="name" />
+                            <field name="code" />
+                            <field name="cooking_luhn" />
+                            <field name="date_issue" />
+                            <field name="isactive" />
+                        </group>
+                        <group name="group_right">
+                            <field name="image" widget="image" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_tree_goods" model="ir.ui.view">
+        <field name="name">Machine List</field>
+        <field name="model">goods.machine</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="code" />
+                <field name="cooking_luhn" />
+
+                <field name="date_issue" />
+                <field name="isactive" />
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_search_goods" model="ir.ui.view">
+        <field name="name">Machine Filters</field>
+        <field name="model">goods.machine</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <filter name="filter_active"
+                    string="Active"
+                    domain="[('isactive','=',True)]" />
+               <filter name="filter_inactive"
+                    string="Inactive"
+                    domain="[('active','=',False)]" />
+            </search>
+        </field>
+    </record>
+
+</odoo>
